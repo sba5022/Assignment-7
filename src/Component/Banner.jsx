@@ -10,7 +10,8 @@ const Banner = () => {
 relationships that matter most.</p>
   <button className='btn btn-success items-center'><HiPlusSmall />Add Friend</button>
           </div>
-        <div className='flex gap-4 justify-center'>
+        
+        <div className='grid grid-cols-1 md:grid-cols-4  container mx-auto'>
               <div className='w-[260px] h-[130px] shadow-md rounded-lg  flex flex-col items-center justify-center gap-2 '>
             <h2>10</h2>
             <p className='text-[#64748B]'>Total Friends</p>
@@ -28,6 +29,7 @@ relationships that matter most.</p>
             <p className='text-[#64748B]'>Interactions This Month</p>
           </div>
         </div>
+        
         <br />
         <hr className='container mx-auto text-gray-200'/>
         </div>
