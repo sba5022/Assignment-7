@@ -8,6 +8,7 @@ import { MdOutlineTextsms } from 'react-icons/md';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useLoaderData, useParams } from 'react-router';
 import { TimelineContext } from '../context/TimelineContext';
+import { toast } from 'react-toastify';
 // const friendsPromise= fetch('/FriendsData.json').then(res => res.json());
 
 const FriendsDetails = () => {
@@ -23,11 +24,11 @@ const FriendsDetails = () => {
         console.log(expectedFriend,'expectedFriend');
       const handleTimeline = (type) => {
          if (type === "call") {
-    alert("Calling now 📞");
+    toast("Calling now ");
   } else if (type === "text") {
-    alert("Sending text 💬");
+    toast("Sending text ");
   } else if (type === "video") {
-    alert("Starting video call 🎥");
+    toast("Starting video call ");
   }
   setTimelines((prev) => [
     ...prev,

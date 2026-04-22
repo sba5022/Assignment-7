@@ -9,10 +9,12 @@ import Home from './Component/Home.jsx';
 import Timeline from './Component/Timeline.jsx';
 import { router } from './Routes/Routes.jsx';
 import TimelineProvider from './context/TimelineContext.jsx';
+import { ToastContainer } from 'react-toastify';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
 <TimelineProvider > <RouterProvider router={router} /></TimelineProvider>
+ <ToastContainer />
   </StrictMode>,
 )
