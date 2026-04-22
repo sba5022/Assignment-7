@@ -13,7 +13,7 @@ const Footer = () => {
   
   </aside>
   <nav>
-    <div className="grid grid-flow-col gap-4">
+    <div className="grid grid-flow-col gap-5">
       <a>
     <div className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow">
   <svg
