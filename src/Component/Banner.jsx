@@ -13,7 +13,7 @@ relationships that matter most.</p>
         
         <div className='grid grid-cols-1 md:grid-cols-4  container mx-auto'>
               <div className='w-[260px] h-[130px] shadow-md rounded-lg  flex flex-col items-center justify-center gap-2 '>
-            <h2>10</h2>
+            <h2>9</h2>
             <p className='text-[#64748B]'>Total Friends</p>
           </div>
           <div className='w-[260px] h-[130px] shadow-md rounded-lg flex flex-col items-center justify-center gap-2 '>
