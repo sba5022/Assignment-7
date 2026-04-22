@@ -8,9 +8,11 @@ import Layout from './layout/Layout.jsx';
 import Home from './Component/Home.jsx';
 import Timeline from './Component/Timeline.jsx';
 import { router } from './Routes/Routes.jsx';
+import TimelineProvider from './context/TimelineContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<RouterProvider router={router} />
+
+<TimelineProvider > <RouterProvider router={router} /></TimelineProvider>
   </StrictMode>,
 )

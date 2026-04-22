@@ -1,4 +1,5 @@
 
+import { use } from 'react';
 import { FaRegBell } from 'react-icons/fa';
 import { FiInbox } from 'react-icons/fi';
 import { IoVideocamOutline } from 'react-icons/io5';
@@ -6,16 +7,23 @@ import { LuPhoneCall } from 'react-icons/lu';
 import { MdOutlineTextsms } from 'react-icons/md';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useLoaderData, useParams } from 'react-router';
+import { TimelineContext } from '../context/TimelineContext';
 // const friendsPromise= fetch('/FriendsData.json').then(res => res.json());
 
 const FriendsDetails = () => {
     const {id}= useParams();
+    const {timeline,setTimeline}= use(TimelineContext)
+    
     console.log(id,'para');
+
     // const friends =use(friendsPromise);
     const friends =useLoaderData();
         console.log(friends,'friensdata');
         const expectedFriend = friends.find(friend => friend.id == Number(id));
         console.log(expectedFriend,'expectedFriend');
+        const handleTimeline =(type)=> {
+            setTimeline([...timeline,{...expectedFriend,type}])
+        }
     return (
         <div className='grid grid-cols-2 container mx-auto py-10' >
             <div className='space-y-5'>
@@ -78,9 +86,9 @@ const FriendsDetails = () => {
                    
                         <h2 className='text-[#244D3F]'>Quick Check-In</h2>
                        <div className='flex  gap-2 justify-center'>
-                        <div><button className='btn h-[90px] w-[150px]'><LuPhoneCall />Call</button></div>
-                        <div><button className='btn h-[90px] w-[150px]'><MdOutlineTextsms />Text</button></div>
-                        <div><button className='btn h-[90px] w-[150px]'><IoVideocamOutline />Video</button></div>
+                        <div><button onClick={()=> handleTimeline('call')} className='btn h-[90px] w-[150px]'><LuPhoneCall />Call</button></div>
+                        <div><button onClick={()=> handleTimeline('text')} className='btn h-[90px] w-[150px]'><MdOutlineTextsms />Text</button></div>
+                        <div><button onClick={()=> handleTimeline('video')} className='btn h-[90px] w-[150px]'><IoVideocamOutline />Video</button></div>
                        </div>
                     
                    
