@@ -8,7 +8,8 @@ import { DiVim } from 'react-icons/di';
 const Home = () => {
     return (<>
        <Banner/>
-       <AllFriends/>
+
+      <Suspense fallback={ <span className="loading loading-spinner loading-xl mx-150"></span>}> <AllFriends/></Suspense>
      
      
         </>

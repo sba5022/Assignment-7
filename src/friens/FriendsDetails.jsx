@@ -67,7 +67,7 @@ const FriendsDetails = () => {
       ? "badge bg-yellow-500 text-white"
       : "badge bg-gray-500 text-white"
   }`}>{expectedFriend.status}</div>
-  <p className='text-gray-400'>Preferred: email</p>
+  <p className='text-gray-400'>{expectedFriend.email}</p>
     </div>
   </div>
 </div>

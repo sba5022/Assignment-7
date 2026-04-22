@@ -3,7 +3,9 @@ import React from 'react';
 const Stats = () => {
     return (
         <div>
-            stats
+       <div>
+        <h2>Friendship Analytics</h2>
+       </div>
         </div>
     );
 };
