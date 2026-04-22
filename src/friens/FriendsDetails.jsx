@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 
 const FriendsDetails = () => {
     const {id}= useParams();
-    const {timelines,setTimelines}= useContext(TimelineContext)
+    const {setTimelines}= useContext(TimelineContext)
     
     console.log(id,'para');
 
@@ -40,7 +40,7 @@ const FriendsDetails = () => {
   ]);
 };
     return (
-        <div className='grid grid-cols-2 container mx-auto py-10' >
+        <div className='grid grid-cols-1 md:grid-cols-2 container mx-auto py-10' >
             <div className='space-y-5'>
                 <div  className="card bg-base-100 w-70 shadow-sm">
            
@@ -80,27 +80,27 @@ const FriendsDetails = () => {
 
 
             <div>
-                <div className='flex gap-2 mb-5'>
-                    <div className='w-[230px] h-[135px] shadow-md text-center space-y-2'  >
-                        <h2 className='font-bold  text-2xl '>{expectedFriend.days_since_contact}</h2>
-                        <p className='text-[#64748B]'>Days Since Contact</p>
+                <div className='flex flex-col sm:flex-row gap-3 sm:gap-4'>
+                    <div className='flex-1 shadow-md text-center p-4 rounded-md'  >
+                        <h2 className='font-bold text-xl md:text-2xl '>{expectedFriend.days_since_contact}</h2>
+                        <p className='text-[#64748B] text-sm md:text-base'>Days Since Contact</p>
                     </div>
-                    <div className='w-[230px] h-[135px] shadow-md text-center space-y-2' > <h2 className='font-bold  text-2xl '>{expectedFriend.goal}</h2>
-                        <p className='text-[#64748B]'>Goal (Days)</p></div>
-                    <div className='w-[230px] h-[135px] shadow-md text-center space-y-2' > <h2 className='font-bold  text-2xl '>{expectedFriend.next_due_date}</h2>
-                        <p className='text-[#64748B]'>Next Due </p></div>
+                    <div className='flex-1 shadow-md text-center p-4 rounded-md' > <h2 className='font-bold  text-xl md:text-2xl '>{expectedFriend.goal}</h2>
+                        <p className='text-[#64748B] text-sm md:text-base'>Goal (Days)</p></div>
+                    <div className='flex-1 shadow-md text-center p-4 rounded-md' > <h2 className='font-bold text-xl md:text-2xl'>{expectedFriend.next_due_date}</h2>
+                        <p className='text-[#64748B] text-sm md:text-base'>Next Due </p></div>
                 </div>
                 <div className='w-[640px] h-[120px] shadow-md rounded-md'>
-                    <div className='flex gap-100'>
-                        <h2 className='text-[#244D3F]'>Relationship Goal</h2>
-                        <button className='btn'>Edit</button>
+                    <div className='w-full rounded-md p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2'>
+                        <h2 className='text-[#244D3F] font-semibold'>Relationship Goal</h2>
+                        <button className='btn btn-sm sm:btn-md' >Edit</button>
                     </div>
                     <p className='text-[#64748B]'>Connect every <span className='font-bold'>30 days</span></p>
                 </div>
-                <div className='w-[640px] h-[180px] shadow-md rounded-md space-y-4 p-5'>
+                <div className='w-full shadow-md rounded-md p-5 space-y-4'>
                    
                         <h2 className='text-[#244D3F]'>Quick Check-In</h2>
-                       <div className='flex  gap-2 justify-center'>
+                       <div className='flex flex-col sm:flex-row gap-3'>
                         <div><button onClick={()=> handleTimeline('call')} className='btn h-[90px] w-[150px]'><LuPhoneCall />Call</button></div>
                         <div><button onClick={()=> handleTimeline('text')} className='btn h-[90px] w-[150px]'><MdOutlineTextsms />Text</button></div>
                         <div><button onClick={()=> handleTimeline('video')} className='btn h-[90px] w-[150px]'><IoVideocamOutline />Video</button></div>

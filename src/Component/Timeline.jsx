@@ -1,7 +1,8 @@
-import React, {  useContext, useEffect, useState } from 'react';
+import React, {  useContext, useState } from 'react';
 import { TimelineContext } from '../context/TimelineContext';
 
 const Timeline = () => {
+  const [searchText, setSearchText] = useState("");
   const [sortingType, setSortingType] = useState("");
   console.log(sortingType,'sorted')
      const {timelines}= useContext(TimelineContext);
@@ -24,23 +25,27 @@ const Timeline = () => {
 //     }
 //   }
 // })
-const filteredTimelines =
-  sortingType
-    ? timelines.filter((t) => t.type === sortingType)
-    : timelines;
+const filteredTimelines = timelines.filter((t) => {
+  const matchType = sortingType ? t.type === sortingType : true;
+
+  const matchName = t.name
+    .toLowerCase()
+    .includes(searchText.toLowerCase());
+
+  return matchType && matchName;
+});
     return (
         <div>
            <div className='container mx-auto mb-10'>
             <h2 className='font font-semibold text-2xl'>Timeline</h2>
             <div className="dropdown dropdown-center">
-  <input
-        type="text"
-        readOnly
-        
-        placeholder="Filter timeline"
-        tabIndex={0}
-        className="input input-bordered w-full cursor-pointer"
-      />
+ <input
+  type="text"
+  placeholder="Search by name..."
+  value={searchText}
+  onChange={(e) => setSearchText(e.target.value)}
+  className="input input-bordered w-full"
+/>
   <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li onClick={()=> setSortingType('call')}><a>Call</a></li>
      <li onClick={()=> setSortingType('text')}><a>Text</a></li>
