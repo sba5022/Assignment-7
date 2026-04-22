@@ -3,9 +3,9 @@ import React, { Children, createContext, useState } from 'react';
 export const TimelineContext = createContext();
 
 const TimelineProvider = ({children}) => {
-    const [timeline, setTimeline] = useState([]);
+    const [timelines, setTimelines] = useState([]);
     return (
-      <TimelineContext value={{timeline,setTimeline}}>{children}</TimelineContext>
+      <TimelineContext value={{timelines,setTimelines}}>{children}</TimelineContext>
     );
 };
 

@@ -1,5 +1,5 @@
 
-import { use } from 'react';
+import {  useContext } from 'react';
 import { FaRegBell } from 'react-icons/fa';
 import { FiInbox } from 'react-icons/fi';
 import { IoVideocamOutline } from 'react-icons/io5';
@@ -12,7 +12,7 @@ import { TimelineContext } from '../context/TimelineContext';
 
 const FriendsDetails = () => {
     const {id}= useParams();
-    const {timeline,setTimeline}= use(TimelineContext)
+    const {timelines,setTimelines}= useContext(TimelineContext)
     
     console.log(id,'para');
 
@@ -21,9 +21,23 @@ const FriendsDetails = () => {
         console.log(friends,'friensdata');
         const expectedFriend = friends.find(friend => friend.id == Number(id));
         console.log(expectedFriend,'expectedFriend');
-        const handleTimeline =(type)=> {
-            setTimeline([...timeline,{...expectedFriend,type}])
-        }
+      const handleTimeline = (type) => {
+         if (type === "call") {
+    alert("Calling now 📞");
+  } else if (type === "text") {
+    alert("Sending text 💬");
+  } else if (type === "video") {
+    alert("Starting video call 🎥");
+  }
+  setTimelines((prev) => [
+    ...prev,
+    {
+      name: expectedFriend.name,
+      type,
+      date: new Date().toLocaleString()
+    }
+  ]);
+};
     return (
         <div className='grid grid-cols-2 container mx-auto py-10' >
             <div className='space-y-5'>

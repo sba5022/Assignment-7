@@ -1,12 +1,12 @@
-import React, { use } from 'react';
+import React, {  useContext } from 'react';
 import { TimelineContext } from '../context/TimelineContext';
 
 const Timeline = () => {
-     const {timeline}= use(TimelineContext);
-     console.log(timeline)
+     const {timelines}= useContext(TimelineContext);
+     console.log(timelines)
     return (
         <div>
-           <div className='container mx-auto'>
+           <div className='container mx-auto mb-10'>
             <h2 className='font font-semibold text-2xl'>Timeline</h2>
             <div className="dropdown dropdown-center">
   <input
@@ -22,6 +22,21 @@ const Timeline = () => {
     <li><a>Item 2</a></li>
   </ul>
 </div>
+           </div >
+           <div className='container mx-auto'>
+            {
+              timelines.map((timeline,index ) => {
+                return   <div key={index} className="p-3 shadow rounded-md">
+      <p className="font-semibold">
+        {timeline.name} {timeline.type === "call" && "called you"}
+        {timeline.type === "text" && "texted you"}
+        {timeline.type === "video" && "video called you"}
+      </p>
+      <p className="text-sm text-gray-500">{timeline.date}</p>
+      
+    </div>
+              })
+            }
            </div>
         </div>
     );
